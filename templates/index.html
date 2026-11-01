@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Smart Technical Quiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <main class="container">
+
+        <header class="hero">
+
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <span>AI POWERED LEARNING</span>
+            </div>
+
+            <h1>AI Smart <span>Technical Quiz</span></h1>
+
+            <p>
+                Test your technical knowledge with intelligent
+                AI-generated questions powered by Google Gemini.
+            </p>
+
+            <div class="hero-tags">
+                <span>✦ AI Generated</span>
+                <span>⚡ Instant Quiz</span>
+                <span>🎯 Smart Evaluation</span>
+            </div>
+
+        </header>
+
+
+        <section class="setup-card">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">GET STARTED</span>
+                    <h2>Create Your Quiz</h2>
+                    <p>Customize your quiz and challenge yourself.</p>
+                </div>
+
+                <div class="gemini-icon">✧</div>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="topic">Technical Topic</label>
+
+                <input
+                    type="text"
+                    id="topic"
+                    placeholder="e.g. Python, Java, SQL, Data Structures"
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="difficulty">Difficulty Level</label>
+
+                    <select id="difficulty">
+                        <option value="Easy">Easy</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="count">Number of Questions</label>
+
+                    <select id="count">
+                        <option value="5">5 Questions</option>
+                        <option value="10">10 Questions</option>
+                        <option value="15">15 Questions</option>
+                        <option value="20">20 Questions</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button id="generateBtn"
+                    class="generate-btn"
+                    onclick="generateQuiz()">
+
+                <span>✦</span> Generate AI Quiz
+                <span class="btn-arrow">→</span>
+
+            </button>
+
+
+            <div id="loading" class="loading hidden">
+
+                <div class="loader"></div>
+
+                <h3>Creating your quiz...</h3>
+
+                <p>Google Gemini AI is preparing your questions.</p>
+
+            </div>
+
+
+            <div id="error" class="error hidden"></div>
+
+        </section>
+
+
+        <section id="quizSection" class="quiz-section hidden">
+
+            <div class="quiz-top">
+
+                <div>
+                    <span class="eyebrow">YOUR CHALLENGE</span>
+                    <h2>Technical Quiz</h2>
+                </div>
+
+                <div id="progress" class="progress-badge"></div>
+
+            </div>
+
+            <div id="quizContainer"></div>
+
+            <button id="submitBtn"
+                    class="generate-btn"
+                    onclick="submitQuiz()">
+                Submit Quiz →
+            </button>
+
+        </section>
+
+
+        <section id="resultSection" class="result-section hidden">
+
+            <div class="result-icon">🏆</div>
+
+            <span class="eyebrow">QUIZ COMPLETED</span>
+
+            <h2>Your Performance</h2>
+
+            <div id="score" class="score-display"></div>
+
+            <p class="result-message" id="resultMessage"></p>
+
+            <h3 class="review-heading">Answer Review</h3>
+
+            <div id="resultDetails"></div>
+
+            <button class="generate-btn"
+                    onclick="resetQuiz()">
+                ↻ Generate New Quiz
+            </button>
+
+        </section>
+
+
+        <footer>
+            <p>Powered by <strong>Google Gemini AI</strong></p>
+            <p>AI Smart Technical Quiz © 2026</p>
+        </footer>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
